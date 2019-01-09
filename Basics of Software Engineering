@@ -1,0 +1,217 @@
+Fundamental ideas in SE
+
+Software specification: The functionality of the software and constraints on its operation must be defined
+
+Software design and implementation: The software to meet the specification must be produced
+
+Software validation: The software must be validated to ensure that it does what the customer wants
+
+Software evolution: The software must evolve to meet changing customer needs
+
+Some definitions:
+
+The waterfall model: This takes the fundamental process actiities of specification, development, validation and evolution and represents them as
+separate process phases such as requirements specification, software design, implementation, testing and so on.
+
+Incremental development: This approach interleaves the activities of specification, development and validation. The system is developed as a series of versions with 
+ech version adding functionality to the previous version
+
+Reuse oriented SE--This approach is based on the existence of a significant number of reusable components. The system development process focuses on integrating these components
+into a system rather than developing them from scratch.
+
+Principal stages of Waterfall model:
+
+1) Requirements analysis and definitions: Systems services, constraints and goals are established by consultation with systems users. They are then defined in detail and serve as system's specification.
+
+2) System and software design--The systems design process allocates the requirements to either hardware or software systems by establishing an overall system architecture. Software design involves identifying and describing the fundamental software system abstractions and their relationships.
+
+3) Implementation and unit testing: During this stage, the software design is relaised as aset of programs or program units. Unit testing involves verifying that each unit meets its specification.
+
+4) Integration and system testing: The individual program units or programs are integrated and tested as a complete system to ensure that the software requirements have been met. After testing, the software system is delivered to the customer.
+
+5) Operation and maintenance: Normally (although not necessarily) this is the longest life cycle phase. The system is installed and put into practical use and maintenance involves correcting errors which were not discovered in early stages of the life cycle, improving the implementation of system units and enhancing 
+the system's services as new requirements are discovered.
+
+Cleanroom process:(by IBM)
+
+Each software increment is formally specified and this specification is transforemd into an implementation. Software correctness is demoed using a formal approach. There is no unit testing for defects in the process and 
+the system testing is focused on assessing the system's reliability.
+
+Objective of the cleanroom process is zerodefects software so that delivered systems have a high level of reliability.
+
+The WF model should be used when the requirements are well understood and unlikely to change radically during system development.
+
+An important variant of teh WF model is formal system development, where a math model of a system specification is created. This model is then refined using mathematical transformations that preserve its consistency into executable code.
+
+Based on teh assumption that math transformations are correct, one can therefore make a strong argument that a program generated in this way is consistent with its specification.Formal development processes are particularly suited to teh development of systems that have stringent safety, reliabilty or security requirements.
+The formal approach simplifies the production of a safety or security case. This demoes to customers or regulators that the system actually meets its safety or security requirements.
+
+Processes based on formal transformations are generally used only in the development of safety critical or security critical systems. They require specialised expertise.
+For the majority of the systems this process does not offer significant cost benefits over other approaches to the system development.
+
+
+Incremental development
+
+Each increment or version of the system incorporates some of the functionality that is needed by the customer. Generally the early increments of th system include the most imortant or most urgently required functionality and this means the customer can evaluate the system at a relatively early stage in the devleopment to see if it delivers what is required.
+
+I D has 3 important benefits compared to WF model:
+
+1) The cost of accomodating changing customer requirements is reduced. The amount of analysis and documentation that has to be redone is much less than is required with the waterfall model
+
+2) Customers find it difficult to judge progress from purely design documents. Customer can comment on demonstrations of the software and see the implementation progress and it is much easier to get feedback on the devlopment work that has already been done.
+
+3) More rapid delivery and deployment of useful software to the customer is possible even if all the functionality has not been included. Customers are able to use and gain value from the software earlier than is possible with a waterfall process.
+
+From a management perspective the incremental approach has two problems:
+
+1) The process is not visible. Managers need regular deliverable to measure progress and if the systems are developed quickly it is not cost effective to produce documents that reflect every version of the system
+
+2) System structure tends to degrade as new increments are added. Unless time and money is spent on refactoring to improve the software, regular change tends to corrupt out its structure. Incorporating further software changes becomes increasingly difficult and  costly.
+
+Major problems arise in large complex long lifetime systems where different teams develop different parts of the system.
+Large systems need a stable framework or architecture and the responsibilities of diff teams working on parts of the system need to be clearly defined with respect to that architecture. This has to be planned in advance rather than developed incrementally.
+
+Requirements Specification ---------> Component Analysis ------------>Requirements Modification ---------------> System Design with Reuse------------> Development and Integration ---------> System Validation
+
+1] Component analysis: Given the requirements specificationm a search is made for components to implement that specification. Usually, there is no exact match and components that may be used only to provide some of the functionality required
+
+2) Requirements specification: Requirements are analyzed using info about components that have been discovered. They are then modified to reflect teh available component. Where modifications are impossible, the component analysis may be reentered to search for alternative solutions
+
+3) System design with reuse: During this phasem the framework of the system is designed or an existing framework is reused. The designers take into account the compoenents that are reused and organize the framework to cater for this. Some new software may have to be designed if reusable components are not available
+
+4) Development and Integration : Software that cannot be externally procured is developed and components and COTS systems are integrated to create the new system. System integration, in this model, may be part of the development process rather than a separate activity
+
+There are 3 types of software components:
+
+1) Web services that are developed according to service standards and which are available for remote invocation
+2) Collections of objects that are developed as a package to be integrated with a component framework such as .NET or J2EE
+3) Stand alone software systems that are configured for use in a particular environment
+
+
+General model of the design process:
+
+    Platform information                      Requirements Specification               Data Description
+
+                                                      |
+                                                      |
+                                                Design activities
+   
+             Architectural Design ----->    Interface design  -------> Component Design
+                           \                                          /
+                                            Database Design
+
+                                                   |
+                                                   |
+                                           Design Outputs
+
+     System Architecture   Database Specification     Interface Specification      Component Specification
+
+
+Architectural Design----identify the overall structure of the system, the principal components their relationships and how they are distributed
+
+Interface design---Where you define the interfaces between system components and this interface specification must be unambiguous. With a precise interface, a component can be used without other components having to know how it is implemented.
+Once interface specifications are agreed, the componnets can be designed and developed concurrently
+
+Component design--where you take each system component and design how it will operate. THis may be a simple statement of the expected functionality to be implemented with specific design left to the programmer. It could also be a list of changes to be made to a reusable component or a detailed design model. The design model may be used to automatically gebnerate an implementation
+
+Database design---Where one designs the system data structures and how these are to be represented in the database. Again teh work here depends on whether an eexisting DB is to be reused or a new DB is to be created.
+
+
+Critical Systems---detailed design documents setting out precise and accurate description of the systems must be produced.
+
+Model driven approach---these outputs are mostly diagrams
+
+Agile methods---outputs of the design process may not be separate specification docs but may be represented in the code of the program
+
+Structured Methods
+
+Structured methods may support some or all of the following models of a system:
+
+An object model that shows the object classes used in the system and their dependencies.
+A sequence model that shows how objects in the system interact when the system is executing.
+A state transition model that shows  system states and the triggers for the transitions from one state to another.
+A structural model where the system components and their aggregations are documented.
+A data flow model where the system is modelled using the data transformations that take place as it is processed. This is not normally used in object-oriented methods but is still frequently used in real-time and business system design.
+A use-case model that shows the interactions between users and the system.
+
+Function-oriented methods use functions as their central design abstraction and often start by identifying the data-flow through a system. 
+By contrast, object-oriented methods use objects as their abstraction and they rely on use-cases to describe the processes in the system's environment.
+
+In practice, structured ‘methods’ are really standard notations and embodiments of good practice.
+
+Subteleties of the development process:
+
+Debugging and defect testing are different processes. Testing establishes the existence of defects and debugging is concerned with locating and correcting these defects.
+
+When debugging, one has to generate the hypotheses about the observable behaviour of the program and then test hese hypotheses in the hope of finding the fault that caused the output anomaly.
+
+Testing the hypotheses may involve tracing the program code out manually and may require new test cases to localize he problem
+
+Interactive debugging tools which show the intermediate values of a program variables and a trace of the statements executed may be used to support the debugging process.
+
+Software validation or more generally verification and validation is intended to show that a system both conforms to its specification and that it meets the expectation of the system customer. Program testing where system is executed using simulated test data is the principal validation technique.
+Validation may also involve checking processes such as inspection and reviews ateach stage of the software process from user requirements definition to program development and because of the predominance of testing, the majority of
+validation costs are incurred during and after implementation
+
+Except for small programs, systems should not be tested as a single, monolithic unit.
+   |--------------------------------------------\
+Component Testing ====> System Testing ====> Acceptance Testing
+   ^                                            |
+   |                                            |
+    ---------------------------------------------
+
+1) Development testing---The components making the system are tested by the ppl developing the system. Each component tested independently without other system components. Components may be object classes or functions  or may be coherent groupings of these entities. Test automation tools as JUnit that can re-run component tests when new versions of the component are created are commonly used
+
+2) System Testing: System components are integrated to create a complete system and process is concerned with finding errors that result from unanticipated interactions between components and component interface problems. Also concerned with showing that system meets its functional and non functional requirementys and then testing then mergent system properties. For large systems, this may be a multi stage where components are integrated to form sub systems that are individually tested before these sub systems are themselves integrated to form the final system
+
+3) Acceptance Testing: Final stage in the testing proces before the system is accepted for operational use. The system is tested with data supplied by teh customer rather tahn simulated test data. Acceptance testing may reveal errors and omissions in the system req definition  as the real data exercise the system in different ways that the test data do. This is very important to understand. Acceptance testing may also revela requirements problems where the systems facilities do not really meet the users needs or the system performance is unacceptable.
+
+Testing phases in a plan driven software process
+
+Following these methods and applying the guidelines can result in a reasonable design. 
+Designer creativity is still required to decide on the system decomposition and to ensure that the design adequately captures the system specification. 
+Empirical studies of designers (Bansler and Bødker, 1993) have shown that they rarely follow methods slavishly. They pick and choose from the guidelines according to local circumstances.
+
+   Testing phases in a plan driven software process
+
+Requirements Specification ------> System Specification -----> System Design -----> Detailed Design
+
+          |                          |               |          |         |          |              \
+               Acceptance Test plan                    System               Sub System               Module and Unit Code and Test
+                      |                              Integration             Integration             /
+                                                      Test Plan                 Test Plan           /
+   Service <----- Acceptance Test -< ---------System Integration Test <-------- Sub System Integration Test
+
+When a system is to be marketed as a software product, a testing process called beta testing is often used and beta testing involves delivering a system to a number of potential customers
+who agreee to use that system and report problems to the system developers. This exposes the product to real use and detects errors that may not have been anticipated by the sytem builders and after this feedback, the system is modified and released either for further beta testing or for general sale.
+
+System Evolution
+
+
+    Define System
+     Requirements ----------> Assess Existing Systems ------> Propose System Changes --------> Modify Systems\\\\\\\\\   
+                                  |           |                                                                       \                                  |
+                                  |            ------------------------------------------------  ------------------------------------                                                                                        |
+                         Existing Systems                                                                                  New System
+
+Change adds to teh cost of software developmemt because t usually means that work that was competed has to be redone. This is called rework.
+For example, if the relationships between the requirements in a system have been analyzed and new requirements are then identified , some or all of the requirements analysis has to be repeated.
+It may then be necessary to redesign the syetm to deliver the new requirements, change any programs that have been developed and then re test the system.
+
+1) Change avoidance----where the software process includes activities that can anticipate possible changes before significant rework is required. For example-- a prototype system may be developed to show some key features of the system to the customers. They can expereiment with the prototype and refine their 
+requirements before committing to high software production costs
+
+2) Change tolerance----Where the process is designed so that changes can be accomodated at relatively low cost. This normally involves some form of incremental development. Proposed changes may be implemented in increments that have not yet been developed.
+
+Two ways to cope with this:
+
+1) System prototyping:where a version of the system or part of the system is developed quickly to check the customers requirements and the feasibility of some design decisions and this supports change avoidance as it allows users to experiemnt wth the system before delivery and so refine their requirements and the number of requirements change proposals made after delivert is therefore likely to be reduced.
+
+2) Incremental Delivery---system increments are delivered to the customer for comment and experimentation. This supports both change avoidance and change tolerance. It avoids premature commitment to requirements for the whole system and allows changes to be incorporated into later increments at relatively low cost.
+
+
+Process of Prototype development
+
+   Establish prototype objectives  -----> Define Prototype functionality ----------> Develop prototype -----> Evaluate Prototype
+          |                                           |                                      |                         |
+      Prototyping plan                       Outline Definition           
